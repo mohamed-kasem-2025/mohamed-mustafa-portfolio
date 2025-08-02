@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { X, Play } from 'lucide-react';
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import BeforeAfterComparison from './BeforeAfterComparison';
+import ProtectedMedia from './ProtectedMedia';
 
 const Portfolio = () => {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
@@ -1116,23 +1117,25 @@ const Portfolio = () => {
                     }
                   }}
                 >
-                  <div className="relative overflow-hidden rounded-lg mb-4">
-                    <img
-                      src={item.image}
-                      alt={item.title}
-                      className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110"
-                    />
-                    {item.type === 'video' && (
-                      <div className="absolute inset-0 bg-portfolio-primary/50 flex items-center justify-center">
-                        <Play className="w-12 h-12 text-portfolio-accent" />
+                  <ProtectedMedia>
+                    <div className="relative overflow-hidden rounded-lg mb-4">
+                      <img
+                        src={item.image}
+                        alt={item.title}
+                        className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110"
+                      />
+                      {item.type === 'video' && (
+                        <div className="absolute inset-0 bg-portfolio-primary/50 flex items-center justify-center">
+                          <Play className="w-12 h-12 text-portfolio-accent" />
+                        </div>
+                      )}
+                      <div className="absolute inset-0 bg-portfolio-primary/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <span className="text-portfolio-accent font-montserrat font-semibold">
+                          {isEnglish ? 'View' : 'عرض'}
+                        </span>
                       </div>
-                    )}
-                    <div className="absolute inset-0 bg-portfolio-primary/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                      <span className="text-portfolio-accent font-montserrat font-semibold">
-                        {isEnglish ? 'View' : 'عرض'}
-                      </span>
                     </div>
-                  </div>
+                  </ProtectedMedia>
                   {item.category !== 'انتاج ومونتاج فيديو' && item.category !== 'Video Production & Editing' && (
                     <>
                       <h3 className="text-xl font-cairo font-bold text-portfolio-text mb-2">
@@ -1176,22 +1179,26 @@ const Portfolio = () => {
             </button>
             
             {lightboxContent.type === 'image' ? (
-              <img
-                src={lightboxContent.src}
-                alt="Portfolio item"
-                className="max-w-full max-h-full object-contain mx-auto rounded-lg w-auto h-auto"
-                style={{ maxWidth: '100vw', maxHeight: '100vh' }}
-              />
+              <ProtectedMedia>
+                <img
+                  src={lightboxContent.src}
+                  alt="Portfolio item"
+                  className="max-w-full max-h-full object-contain mx-auto rounded-lg w-auto h-auto"
+                  style={{ maxWidth: '100vw', maxHeight: '100vh' }}
+                />
+              </ProtectedMedia>
             ) : (
-              <div className="w-full max-w-4xl h-[70vh] bg-black rounded-lg overflow-hidden mx-auto">
-                <iframe
-                  src={lightboxContent.embedSrc}
-                  className="w-full h-full"
-                  allow="autoplay"
-                  title="Portfolio video"
-                  onClick={(e) => e.stopPropagation()}
-                ></iframe>
-              </div>
+              <ProtectedMedia>
+                <div className="w-full max-w-4xl h-[70vh] bg-black rounded-lg overflow-hidden mx-auto">
+                  <iframe
+                    src={lightboxContent.embedSrc}
+                    className="w-full h-full"
+                    allow="autoplay"
+                    title="Portfolio video"
+                    onClick={(e) => e.stopPropagation()}
+                  ></iframe>
+                </div>
+              </ProtectedMedia>
             )}
           </div>
         </div>

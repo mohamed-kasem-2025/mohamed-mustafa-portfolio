@@ -1,6 +1,7 @@
 import { Download, X } from 'lucide-react';
 const profileImage = '/lovable-uploads/a9fc3c32-d0e1-4f3c-bce4-f57330712d21.png';
 import { useState, useEffect } from 'react';
+import ProtectedMedia from './ProtectedMedia';
 
 const Hero = () => {
   const [isEnglish, setIsEnglish] = useState(false);
@@ -33,17 +34,19 @@ const Hero = () => {
         <div className="max-w-4xl mx-auto">
           {/* Profile Image */}
           <div className="mb-8 relative">
-            <div className="w-60 h-60 mx-auto relative cursor-pointer" onClick={() => setShowImagePopup(true)}>
-              <div className="absolute inset-0 bg-gradient-accent rounded-full p-1">
-                <img
-                  src={profileImage}
-                  alt="Mohamed Mustafa"
-                  className="w-full h-full object-cover rounded-full"
-                  style={{ objectPosition: '50% 15%' }}
-                />
+            <ProtectedMedia>
+              <div className="w-60 h-60 mx-auto relative cursor-pointer" onClick={() => setShowImagePopup(true)}>
+                <div className="absolute inset-0 bg-gradient-accent rounded-full p-1">
+                  <img
+                    src={profileImage}
+                    alt="Mohamed Mustafa"
+                    className="w-full h-full object-cover rounded-full"
+                    style={{ objectPosition: '50% 15%' }}
+                  />
+                </div>
+                <div className="absolute -inset-2 bg-portfolio-accent rounded-full blur opacity-8 animate-pulse"></div>
               </div>
-              <div className="absolute -inset-2 bg-portfolio-accent rounded-full blur opacity-8 animate-pulse"></div>
-            </div>
+            </ProtectedMedia>
           </div>
 
           {/* Main Heading */}
@@ -97,19 +100,22 @@ const Hero = () => {
           className="fixed inset-0 bg-black/90 flex items-center justify-center z-50 p-4"
           onClick={() => setShowImagePopup(false)}
         >
-          <div className="relative max-w-4xl max-h-[90vh]">
-            <button
-              onClick={() => setShowImagePopup(false)}
-              className="absolute -top-12 right-0 text-white hover:text-portfolio-accent transition-colors z-10"
-            >
-              <X size={32} />
-            </button>
-            <img
-              src={profileImage}
-              alt="Mohamed Mustafa"
-              className="w-full h-full object-contain max-h-[90vh]"
-            />
-          </div>
+          <ProtectedMedia>
+            <div className="relative max-w-4xl max-h-[90vh]">
+              <button
+                onClick={() => setShowImagePopup(false)}
+                className="absolute -top-12 right-0 text-white hover:text-portfolio-accent transition-colors z-10"
+                style={{ pointerEvents: 'auto' }}
+              >
+                <X size={32} />
+              </button>
+              <img
+                src={profileImage}
+                alt="Mohamed Mustafa"
+                className="w-full h-full object-contain max-h-[90vh]"
+              />
+            </div>
+          </ProtectedMedia>
         </div>
       )}
     </section>

@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight, Star, Quote } from 'lucide-react';
+import ProtectedMedia from './ProtectedMedia';
 
 const Testimonials = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -186,11 +187,13 @@ const Testimonials = () => {
                         <div key={testimonial.id} className="portfolio-card text-center">
                           {/* Profile Image */}
                           <div className="flex justify-center mb-4">
-                            <img
-                              src={testimonial.avatar}
-                              alt={isEnglish ? testimonial.nameEn : testimonial.name}
-                              className="w-16 h-16 rounded-full object-cover border-2 border-portfolio-accent"
-                            />
+                            <ProtectedMedia>
+                              <img
+                                src={testimonial.avatar}
+                                alt={isEnglish ? testimonial.nameEn : testimonial.name}
+                                className="w-16 h-16 rounded-full object-cover border-2 border-portfolio-accent"
+                              />
+                            </ProtectedMedia>
                           </div>
 
                           {/* Rating */}
