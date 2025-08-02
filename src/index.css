@@ -1,0 +1,271 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Montserrat:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Portfolio Design System - Mohamed Mustafa */
+@layer base {
+  :root {
+    /* Core Colors - Dark Portfolio Theme */
+    --color-bg: 220 25% 8%;
+    --color-bg-secondary: 220 20% 12%;
+    --color-text: 210 40% 98%;
+    --color-text-muted: 220 15% 70%;
+    
+    /* Brand Colors */
+    --color-accent: 45 95% 55%;
+    --color-accent-hover: 45 95% 45%;
+    --color-primary: 220 25% 8%;
+    --color-secondary: 220 20% 15%;
+    
+    /* UI Colors */
+    --color-card: 220 20% 12%;
+    --color-border: 220 15% 20%;
+    --color-overlay: 220 25% 8%;
+    
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(220, 25%, 8%) 0%, hsl(220, 20%, 12%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(220, 25%, 8%) 0%, hsl(220, 20%, 15%) 50%, hsl(220, 25%, 8%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(45, 95%, 55%) 0%, hsl(45, 95%, 65%) 100%);
+    
+    /* Typography */
+    --font-heading: 'Cairo', sans-serif;
+    --font-body: 'Montserrat', sans-serif;
+    
+    /* Spacing & Effects */
+    --section-padding: 4rem 2rem;
+    --card-padding: 2rem;
+    --border-radius: 0.75rem;
+    --shadow-card: 0 10px 30px -10px hsl(220 25% 8% / 0.3);
+    --shadow-glow: 0 0 40px hsl(45 95% 55% / 0.2);
+    
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    /* Shadcn Compatibility */
+    --background: 220 25% 8%;
+    --foreground: 210 40% 98%;
+    --card: 220 20% 12%;
+    --card-foreground: 210 40% 98%;
+    --primary: 45 95% 55%;
+    --primary-foreground: 220 25% 8%;
+    --secondary: 220 20% 15%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 220 15% 20%;
+    --muted-foreground: 220 15% 70%;
+    --accent: 45 95% 55%;
+    --accent-foreground: 220 25% 8%;
+    --border: 220 15% 20%;
+    --input: 220 15% 20%;
+    --ring: 45 95% 55%;
+    --radius: 0.75rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+    box-sizing: border-box;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-body);
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    line-height: 1.2;
+  }
+}
+
+@layer components {
+  /* Portfolio-specific component styles */
+  .portfolio-section {
+    padding: var(--section-padding);
+  }
+
+  .portfolio-card {
+    background: hsl(var(--color-card));
+    border-radius: var(--border-radius);
+    padding: var(--card-padding);
+    box-shadow: var(--shadow-card);
+    border: 1px solid hsl(var(--color-border));
+    transition: var(--transition-smooth);
+  }
+
+  .portfolio-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-glow);
+  }
+
+  .gradient-text {
+    background: var(--gradient-accent);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .btn-primary {
+    background: var(--gradient-accent);
+    color: hsl(var(--color-primary));
+    padding: 0.75rem 2rem;
+    border-radius: var(--border-radius);
+    font-family: var(--font-body);
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: var(--transition-smooth);
+    border: none;
+    cursor: pointer;
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-glow);
+  }
+
+  .btn-secondary {
+    background: transparent;
+    color: hsl(var(--color-accent));
+    padding: 0.75rem 2rem;
+    border: 2px solid hsl(var(--color-accent));
+    border-radius: var(--border-radius);
+    font-family: var(--font-body);
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: var(--transition-smooth);
+    cursor: pointer;
+  }
+
+  .btn-secondary:hover {
+    background: hsl(var(--color-accent));
+    color: hsl(var(--color-primary));
+    transform: translateY(-2px);
+  }
+
+  .fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.6s ease-out forwards;
+  }
+
+  .skill-tag {
+    background: hsl(var(--color-secondary));
+    color: hsl(var(--color-text));
+    padding: 0.5rem 1rem;
+    border-radius: 1.5rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    display: inline-block;
+    margin: 0.25rem;
+    transition: var(--transition-smooth);
+  }
+
+  .skill-tag:hover {
+    background: hsl(var(--color-accent));
+    color: hsl(var(--color-primary));
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    background: var(--gradient-accent);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .bg-portfolio {
+    background: var(--gradient-primary);
+  }
+
+  .bg-hero {
+    background: var(--gradient-hero);
+  }
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
