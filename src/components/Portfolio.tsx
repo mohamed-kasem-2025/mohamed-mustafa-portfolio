@@ -189,6 +189,25 @@ const Portfolio = () => {
       }
     },
     {
+      id: 55,
+      category: 'انتاج ومونتاج فيديو',
+      title: 'عمل إنتاجي مميز',
+      titleEn: 'Distinguished Production Work',
+      description: 'فيديو إنتاجي عالي الجودة بتقنيات متقدمة في المونتاج والإخراج',
+      descriptionEn: 'High-quality production video with advanced editing and directing techniques',
+      image: 'https://drive.google.com/thumbnail?id=1vFqAEwlYX9oS4fOLK-fHaAkqcuO75-8O&sz=w400-h225',
+      type: 'video',
+      videoUrl: 'https://drive.google.com/file/d/1vFqAEwlYX9oS4fOLK-fHaAkqcuO75-8O/view?usp=sharing',
+      videoEmbedUrl: 'https://drive.google.com/file/d/1vFqAEwlYX9oS4fOLK-fHaAkqcuO75-8O/preview',
+      details: {
+        duration: 'متنوع',
+        durationEn: 'Various',
+        tools: 'Adobe Premiere Pro, After Effects',
+        year: '2024',
+        category: 'Production Video'
+      }
+    },
+    {
       id: 2,
       category: 'ترميم وتلوين الصور القديمة',
       title: 'ترميم الصور التاريخية - المجموعة الأولى',
