@@ -170,6 +170,25 @@ const Portfolio = () => {
       }
     },
     {
+      id: 54,
+      category: 'انتاج ومونتاج فيديو',
+      title: 'فيديو مونتاج احترافي جديد',
+      titleEn: 'New Professional Video Editing',
+      description: 'إنتاج ومونتاج فيديو بأحدث التقنيات والأساليب الإبداعية',
+      descriptionEn: 'Video production and editing with latest techniques and creative methods',
+      image: 'https://drive.google.com/thumbnail?id=1G7GZFU1LQoJHCSFMYaVAPXm-KxWJ1Y8b&sz=w400-h225',
+      type: 'video',
+      videoUrl: 'https://drive.google.com/file/d/1G7GZFU1LQoJHCSFMYaVAPXm-KxWJ1Y8b/view?usp=sharing',
+      videoEmbedUrl: 'https://drive.google.com/file/d/1G7GZFU1LQoJHCSFMYaVAPXm-KxWJ1Y8b/preview',
+      details: {
+        duration: 'متنوع',
+        durationEn: 'Various',
+        tools: 'Adobe Premiere Pro, After Effects',
+        year: '2024',
+        category: 'Professional Video Editing'
+      }
+    },
+    {
       id: 2,
       category: 'ترميم وتلوين الصور القديمة',
       title: 'ترميم الصور التاريخية - المجموعة الأولى',
